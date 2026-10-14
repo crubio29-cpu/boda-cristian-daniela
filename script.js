@@ -112,6 +112,25 @@ const FECHA_BODA = '2026-12-23T10:00:00-05:00';
   });
 })();
 
+/* ===== Foto del arco: busca img/novios con varias extensiones ===== */
+(function cargarFoto() {
+  const arco = document.getElementById('arco');
+  if (!arco) return;
+
+  const candidatas = ['jpg', 'jpeg', 'png', 'webp', 'JPG', 'JPEG', 'PNG'].map((ext) => `img/novios.${ext}`);
+
+  (function probar(i) {
+    if (i >= candidatas.length) {
+      console.warn('Foto no encontrada: guarda la imagen como img/novios.jpg (o .jpeg, .png, .webp).');
+      return;
+    }
+    const img = new Image();
+    img.onload = () => arco.style.setProperty('--foto', `url("${candidatas[i]}")`);
+    img.onerror = () => probar(i + 1);
+    img.src = candidatas[i];
+  })(0);
+})();
+
 /* ===== Probador de colores del código de vestimenta ===== */
 (function iniciarProbador() {
   const seccion = document.getElementById('vestimenta');

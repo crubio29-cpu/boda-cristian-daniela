@@ -3,35 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#FBF7F0">
+  <meta name="theme-color" content="#F6EAD6">
+  <meta name="robots" content="noindex, nofollow">
   <title>Cristian &amp; Daniela · Nuestra boda</title>
   <meta name="description" content="Estás invitado a la boda de Cristian y Daniela. Miércoles 23 de diciembre de 2026.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Montserrat:wght@400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Ramita con flores pastel (SVG reutilizable) -->
+  <!-- Biblioteca de dibujos florales (SVG reutilizable, sin imágenes externas) -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
+      <!-- Flor de cinco pétalos: el color se define con "color" -->
+      <symbol id="flor" viewBox="0 0 40 40">
+        <g fill="currentColor" stroke="#fff" stroke-opacity=".7" stroke-width=".8">
+          <ellipse cx="20" cy="9" rx="6" ry="8.5"/>
+          <ellipse cx="20" cy="9" rx="6" ry="8.5" transform="rotate(72 20 20)"/>
+          <ellipse cx="20" cy="9" rx="6" ry="8.5" transform="rotate(144 20 20)"/>
+          <ellipse cx="20" cy="9" rx="6" ry="8.5" transform="rotate(216 20 20)"/>
+          <ellipse cx="20" cy="9" rx="6" ry="8.5" transform="rotate(288 20 20)"/>
+        </g>
+        <circle cx="20" cy="20" r="4.5" fill="#F0D98A"/>
+      </symbol>
+
+      <!-- Ramita larga con flores -->
       <symbol id="ramita" viewBox="0 0 120 220">
-        <path d="M60 218 C56 150 66 90 60 10" fill="none" stroke="#8FAE98" stroke-width="1.6" stroke-linecap="round"/>
-        <g fill="#B9D0BF">
-          <ellipse cx="44" cy="190" rx="14" ry="7" transform="rotate(-35 44 190)"/>
-          <ellipse cx="78" cy="160" rx="14" ry="7" transform="rotate(35 78 160)"/>
-          <ellipse cx="42" cy="125" rx="12" ry="6.5" transform="rotate(-38 42 125)"/>
-          <ellipse cx="79" cy="95" rx="12" ry="6.5" transform="rotate(38 79 95)"/>
-          <ellipse cx="46" cy="62" rx="10" ry="5.5" transform="rotate(-40 46 62)"/>
+        <path d="M60 218 C56 150 66 90 60 20" fill="none" stroke="#7E9F8A" stroke-width="1.8" stroke-linecap="round"/>
+        <g fill="#A9C7B2">
+          <ellipse cx="44" cy="195" rx="15" ry="7.5" transform="rotate(-35 44 195)"/>
+          <ellipse cx="78" cy="165" rx="15" ry="7.5" transform="rotate(35 78 165)"/>
+          <ellipse cx="42" cy="132" rx="13" ry="7" transform="rotate(-38 42 132)"/>
+          <ellipse cx="79" cy="102" rx="13" ry="7" transform="rotate(38 79 102)"/>
+          <ellipse cx="46" cy="70" rx="11" ry="6" transform="rotate(-40 46 70)"/>
         </g>
-        <g>
-          <circle cx="60" cy="14" r="9" fill="#EBC7C9"/><circle cx="60" cy="14" r="3" fill="#F4E6B5"/>
-          <circle cx="82" cy="60" r="7" fill="#D4CBE6"/><circle cx="82" cy="60" r="2.4" fill="#F4E6B5"/>
-          <circle cx="36" cy="100" r="7" fill="#F3D6BD"/><circle cx="36" cy="100" r="2.4" fill="#F4E6B5"/>
-          <circle cx="84" cy="135" r="6" fill="#BCD7E6"/><circle cx="84" cy="135" r="2" fill="#F4E6B5"/>
+        <use href="#flor" x="38" y="0" width="44" height="44" style="color:#EBB9BE"/>
+        <use href="#flor" x="64" y="52" width="34" height="34" style="color:#CFC3E6"/>
+        <use href="#flor" x="18" y="86" width="34" height="34" style="color:#F3CDAE"/>
+        <use href="#flor" x="66" y="138" width="30" height="30" style="color:#B5D2E4"/>
+        <use href="#flor" x="20" y="172" width="28" height="28" style="color:#EBB9BE"/>
+      </symbol>
+
+      <!-- Ramillete para las esquinas del arco -->
+      <symbol id="ramo" viewBox="0 0 110 100">
+        <g fill="#A9C7B2">
+          <ellipse cx="18" cy="70" rx="20" ry="7" transform="rotate(-25 18 70)"/>
+          <ellipse cx="52" cy="84" rx="22" ry="7" transform="rotate(10 52 84)"/>
+          <ellipse cx="84" cy="62" rx="18" ry="6.5" transform="rotate(-50 84 62)"/>
+          <ellipse cx="30" cy="40" rx="16" ry="6" transform="rotate(-60 30 40)"/>
         </g>
+        <use href="#flor" x="30" y="46" width="40" height="40" style="color:#EBB9BE"/>
+        <use href="#flor" x="62" y="24" width="32" height="32" style="color:#CFC3E6"/>
+        <use href="#flor" x="2" y="34" width="30" height="30" style="color:#F3CDAE"/>
+        <use href="#flor" x="60" y="64" width="28" height="28" style="color:#B5D2E4"/>
+      </symbol>
+
+      <!-- Cenefa floral para separar secciones -->
+      <symbol id="divisor" viewBox="0 0 260 36">
+        <path d="M8 18 H92 M168 18 H252" stroke="#B89B7A" stroke-width="1.4" stroke-dasharray="2 5" stroke-linecap="round"/>
+        <g fill="#A9C7B2">
+          <ellipse cx="104" cy="23" rx="10" ry="3.8" transform="rotate(-20 104 23)"/>
+          <ellipse cx="156" cy="23" rx="10" ry="3.8" transform="rotate(20 156 23)"/>
+        </g>
+        <use href="#flor" x="113" y="1" width="34" height="34" style="color:#EBB9BE"/>
+        <use href="#flor" x="90" y="8" width="20" height="20" style="color:#CFC3E6"/>
+        <use href="#flor" x="150" y="8" width="20" height="20" style="color:#F3CDAE"/>
       </symbol>
     </defs>
   </svg>
@@ -45,16 +84,21 @@
 
       <p class="hero-invita">Con el corazón lleno de alegría te invitamos a celebrar nuestra boda</p>
 
-      <!-- Arco colonial: reemplaza la imagen con img/novios.jpg -->
-      <div class="arco" role="img" aria-label="Foto de Cristian y Daniela"></div>
+      <!-- Arco colonial con foto: guarda tu imagen como img/novios.jpg (o .jpeg, .png, .webp) -->
+      <div class="arco-marco">
+        <div class="arco" id="arco" role="img" aria-label="Foto de Cristian y Daniela"></div>
+        <svg class="ramo ramo-izq" aria-hidden="true"><use href="#ramo"/></svg>
+        <svg class="ramo ramo-der" aria-hidden="true"><use href="#ramo"/></svg>
+      </div>
 
       <h1 class="hero-nombres">Cristian <span class="amp">&amp;</span> Daniela</h1>
       <p class="hero-fecha">Miércoles 23 de diciembre de 2026</p>
-      <p class="hero-frase">“Entre flores, montañas y quienes más queremos, hoy elegimos caminar juntos para siempre.”</p>
+      <p class="hero-frase">“Como florece el campo en diciembre, así floreció nuestro amor: sin prisa, bajo un mismo cielo. Acompáñanos a sellarlo para siempre.”</p>
     </header>
 
     <!-- 2. CUENTA REGRESIVA -->
     <section class="seccion" id="cuenta" aria-labelledby="t-cuenta">
+      <svg class="divisor" aria-hidden="true"><use href="#divisor"/></svg>
       <h2 id="t-cuenta">Falta muy poco</h2>
       <div class="contador" id="contador" role="timer" aria-live="off">
         <div class="unidad"><span class="num" id="dias">--</span><span class="etq">días</span></div>
@@ -67,6 +111,8 @@
 
     <!-- 3. UBICACIÓN -->
     <section class="seccion seccion-tarjeta" id="ubicacion" aria-labelledby="t-ubicacion">
+      <svg class="esquina esquina-der" aria-hidden="true"><use href="#ramita"/></svg>
+      <svg class="divisor" aria-hidden="true"><use href="#divisor"/></svg>
       <h2 id="t-ubicacion">Dónde y cuándo</h2>
       <p class="detalle-fecha">Miércoles 23 de diciembre de 2026<br>10:00 a. m.</p>
       <p class="lugar">Casa de Nohora Ramirez</p>
@@ -79,6 +125,8 @@
 
     <!-- 4. CÓDIGO DE VESTIMENTA -->
     <section class="seccion" id="vestimenta" aria-labelledby="t-vestimenta">
+      <svg class="esquina esquina-izq" aria-hidden="true"><use href="#ramita"/></svg>
+      <svg class="divisor" aria-hidden="true"><use href="#divisor"/></svg>
       <h2 id="t-vestimenta">Código de vestimenta</h2>
       <p class="texto">Tonos pasteles y ropa formal para exteriores: la celebración será al aire libre, en un ambiente campestre.</p>
 
@@ -123,6 +171,8 @@
 
     <!-- 5. MESA DE REGALOS -->
     <section class="seccion seccion-tarjeta" id="regalos" aria-labelledby="t-regalos">
+      <svg class="esquina esquina-der" aria-hidden="true"><use href="#ramita"/></svg>
+      <svg class="divisor" aria-hidden="true"><use href="#divisor"/></svg>
       <h2 id="t-regalos">Mesa de regalos</h2>
       <p class="texto">Tu presencia es nuestro mejor regalo. Si deseas tener un detalle con nosotros, puedes hacerlo por Nequi.</p>
 
@@ -145,6 +195,8 @@
 
     <!-- 6. RSVP -->
     <section class="seccion" id="rsvp" aria-labelledby="t-rsvp">
+      <svg class="esquina esquina-izq" aria-hidden="true"><use href="#ramita"/></svg>
+      <svg class="divisor" aria-hidden="true"><use href="#divisor"/></svg>
       <h2 id="t-rsvp">¿Nos acompañas?</h2>
       <p class="texto">Confirma tu asistencia antes del FECHA_LIMITE_RSVP. Nos ayuda a preparar todo con cariño.</p>
       <a class="boton" href="URL_DE_GOOGLE_FORMS" target="_blank" rel="noopener noreferrer">Confirmar asistencia</a>
@@ -153,6 +205,7 @@
   </main>
 
   <footer class="pie">
+    <svg class="divisor" aria-hidden="true"><use href="#divisor"/></svg>
     <p class="pie-nombres">Cristian &amp; Daniela</p>
     <p class="pie-sub">Gracias por ser parte de nuestra historia</p>
   </footer>
