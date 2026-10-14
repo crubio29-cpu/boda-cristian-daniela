@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#FBF7F0">
+  <title>Cristian &amp; Daniela · Nuestra boda</title>
+  <meta name="description" content="Estás invitado a la boda de Cristian y Daniela. Miércoles 23 de diciembre de 2026.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ramita con flores pastel (SVG reutilizable) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="ramita" viewBox="0 0 120 220">
+        <path d="M60 218 C56 150 66 90 60 10" fill="none" stroke="#8FAE98" stroke-width="1.6" stroke-linecap="round"/>
+        <g fill="#B9D0BF">
+          <ellipse cx="44" cy="190" rx="14" ry="7" transform="rotate(-35 44 190)"/>
+          <ellipse cx="78" cy="160" rx="14" ry="7" transform="rotate(35 78 160)"/>
+          <ellipse cx="42" cy="125" rx="12" ry="6.5" transform="rotate(-38 42 125)"/>
+          <ellipse cx="79" cy="95" rx="12" ry="6.5" transform="rotate(38 79 95)"/>
+          <ellipse cx="46" cy="62" rx="10" ry="5.5" transform="rotate(-40 46 62)"/>
+        </g>
+        <g>
+          <circle cx="60" cy="14" r="9" fill="#EBC7C9"/><circle cx="60" cy="14" r="3" fill="#F4E6B5"/>
+          <circle cx="82" cy="60" r="7" fill="#D4CBE6"/><circle cx="82" cy="60" r="2.4" fill="#F4E6B5"/>
+          <circle cx="36" cy="100" r="7" fill="#F3D6BD"/><circle cx="36" cy="100" r="2.4" fill="#F4E6B5"/>
+          <circle cx="84" cy="135" r="6" fill="#BCD7E6"/><circle cx="84" cy="135" r="2" fill="#F4E6B5"/>
+        </g>
+      </symbol>
+    </defs>
+  </svg>
+
+  <main>
+
+    <!-- 1. PORTADA -->
+    <header class="hero" id="inicio">
+      <svg class="ramita ramita-izq" aria-hidden="true"><use href="#ramita"/></svg>
+      <svg class="ramita ramita-der" aria-hidden="true"><use href="#ramita"/></svg>
+
+      <p class="hero-invita">Con el corazón lleno de alegría te invitamos a celebrar nuestra boda</p>
+
+      <!-- Arco colonial: reemplaza la imagen con img/novios.jpg -->
+      <div class="arco" role="img" aria-label="Foto de Cristian y Daniela"></div>
+
+      <h1 class="hero-nombres">Cristian <span class="amp">&amp;</span> Daniela</h1>
+      <p class="hero-fecha">Miércoles 23 de diciembre de 2026</p>
+      <p class="hero-frase">“Entre flores, montañas y quienes más queremos, hoy elegimos caminar juntos para siempre.”</p>
+    </header>
+
+    <!-- 2. CUENTA REGRESIVA -->
+    <section class="seccion" id="cuenta" aria-labelledby="t-cuenta">
+      <h2 id="t-cuenta">Falta muy poco</h2>
+      <div class="contador" id="contador" role="timer" aria-live="off">
+        <div class="unidad"><span class="num" id="dias">--</span><span class="etq">días</span></div>
+        <div class="unidad"><span class="num" id="horas">--</span><span class="etq">horas</span></div>
+        <div class="unidad"><span class="num" id="minutos">--</span><span class="etq">minutos</span></div>
+        <div class="unidad"><span class="num" id="segundos">--</span><span class="etq">segundos</span></div>
+      </div>
+      <p class="contador-fin" id="contador-fin" hidden>¡Hoy es el gran día!</p>
+    </section>
+
+    <!-- 3. UBICACIÓN -->
+    <section class="seccion seccion-tarjeta" id="ubicacion" aria-labelledby="t-ubicacion">
+      <h2 id="t-ubicacion">Dónde y cuándo</h2>
+      <p class="detalle-fecha">Miércoles 23 de diciembre de 2026<br>10:00 a. m.</p>
+      <p class="lugar">Casa de Nohora Ramirez</p>
+      <p class="detalle">Carrera 4 #2-1<br>San Cayetano</p>
+      <a class="boton" href="https://maps.app.goo.gl/uWxaTqTMLRFbRPK79" target="_blank" rel="noopener noreferrer">
+        <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        Ver en Google Maps
+      </a>
+    </section>
+
+    <!-- 4. CÓDIGO DE VESTIMENTA -->
+    <section class="seccion" id="vestimenta" aria-labelledby="t-vestimenta">
+      <h2 id="t-vestimenta">Código de vestimenta</h2>
+      <p class="texto">Tonos pasteles y ropa formal para exteriores: la celebración será al aire libre, en un ambiente campestre.</p>
+
+      <div class="prendas">
+        <figure class="prenda">
+          <svg viewBox="0 0 100 160" role="img" aria-label="Vestido">
+            <path class="relleno" d="M38 22 L44 6 L56 6 L62 22 L58 56 L80 152 L20 152 L42 56 Z"/>
+            <path class="trazo" d="M44 6 L40 22 M56 6 L60 22 M42 56 L58 56"/>
+          </svg>
+          <figcaption><strong>Ellas</strong><br>Vestido o ropa fresca</figcaption>
+        </figure>
+        <figure class="prenda">
+          <svg viewBox="0 0 100 160" role="img" aria-label="Guayabera">
+            <path class="relleno" d="M30 22 L42 10 Q50 20 58 10 L70 22 L92 54 L80 64 L70 50 L70 138 L30 138 L30 50 L20 64 L8 54 Z"/>
+            <path class="trazo" d="M50 20 L50 138 M40 30 L40 130 M60 30 L60 130"/>
+            <path class="trazo" d="M33 98 h6 v14 h-6 z M61 98 h6 v14 h-6 z"/>
+          </svg>
+          <figcaption><strong>Ellos</strong><br>Guayabera o ropa fresca</figcaption>
+        </figure>
+      </div>
+
+      <p class="sub">Toca un color para probarlo</p>
+      <div class="paleta" id="paleta" role="group" aria-label="Colores sugeridos">
+        <button type="button" class="muestra" data-color="#EBC7C9" data-nombre="Rosa empolvado" aria-label="Rosa empolvado" aria-pressed="true" style="--c:#EBC7C9"></button>
+        <button type="button" class="muestra" data-color="#F3D6BD" data-nombre="Durazno" aria-label="Durazno" aria-pressed="false" style="--c:#F3D6BD"></button>
+        <button type="button" class="muestra" data-color="#F4E6B5" data-nombre="Mantequilla" aria-label="Mantequilla" aria-pressed="false" style="--c:#F4E6B5"></button>
+        <button type="button" class="muestra" data-color="#C5DEC9" data-nombre="Menta" aria-label="Menta" aria-pressed="false" style="--c:#C5DEC9"></button>
+        <button type="button" class="muestra" data-color="#BCD7E6" data-nombre="Celeste" aria-label="Celeste" aria-pressed="false" style="--c:#BCD7E6"></button>
+        <button type="button" class="muestra" data-color="#D4CBE6" data-nombre="Lavanda" aria-label="Lavanda" aria-pressed="false" style="--c:#D4CBE6"></button>
+      </div>
+      <p class="color-actual" id="color-actual" role="status" aria-live="polite">Rosa empolvado</p>
+
+      <div class="reservado">
+        <p class="sub">Reservados para los novios</p>
+        <div class="paleta paleta-reservada">
+          <span class="muestra muestra-reservada" style="--c:#F4EFE6" role="img" aria-label="Perla, reservado para los novios"></span>
+          <span class="muestra muestra-reservada" style="--c:#E3D5BE" role="img" aria-label="Beige, reservado para los novios"></span>
+        </div>
+        <p class="detalle">Perla y beige</p>
+      </div>
+    </section>
+
+    <!-- 5. MESA DE REGALOS -->
+    <section class="seccion seccion-tarjeta" id="regalos" aria-labelledby="t-regalos">
+      <h2 id="t-regalos">Mesa de regalos</h2>
+      <p class="texto">Tu presencia es nuestro mejor regalo. Si deseas tener un detalle con nosotros, puedes hacerlo por Nequi.</p>
+
+      <div class="nequi">
+        <p class="nequi-num">318 694 0184</p>
+        <button type="button" class="boton boton-secundario btn-copiar" data-copiar="3186940184" data-original="Copiar número">
+          <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>
+          <span class="btn-texto">Copiar número</span>
+        </button>
+      </div>
+      <div class="nequi">
+        <p class="nequi-num">310 320 0462</p>
+        <button type="button" class="boton boton-secundario btn-copiar" data-copiar="3103200462" data-original="Copiar número">
+          <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>
+          <span class="btn-texto">Copiar número</span>
+        </button>
+      </div>
+      <p class="aviso-copiado" id="aviso-copiado" role="status" aria-live="polite"></p>
+    </section>
+
+    <!-- 6. RSVP -->
+    <section class="seccion" id="rsvp" aria-labelledby="t-rsvp">
+      <h2 id="t-rsvp">¿Nos acompañas?</h2>
+      <p class="texto">Confirma tu asistencia antes del FECHA_LIMITE_RSVP. Nos ayuda a preparar todo con cariño.</p>
+      <a class="boton" href="URL_DE_GOOGLE_FORMS" target="_blank" rel="noopener noreferrer">Confirmar asistencia</a>
+    </section>
+
+  </main>
+
+  <footer class="pie">
+    <p class="pie-nombres">Cristian &amp; Daniela</p>
+    <p class="pie-sub">Gracias por ser parte de nuestra historia</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
