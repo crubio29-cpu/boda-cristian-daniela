@@ -112,6 +112,21 @@ const FECHA_BODA = '2026-12-23T10:00:00-05:00';
   });
 })();
 
+/* ===== Código QR: si la imagen no carga, se oculta el bloque ===== */
+(function iniciarQR() {
+  const img = document.getElementById('qr-img');
+  const bloque = document.getElementById('qr');
+  if (!img || !bloque) return;
+
+  const ocultar = () => {
+    bloque.hidden = true;
+    console.warn('QR no encontrado: guarda la imagen como img/qr_cristian.jpeg.');
+  };
+
+  img.addEventListener('error', ocultar);
+  if (img.complete && img.naturalWidth === 0) ocultar();
+})();
+
 /* ===== Foto del arco: busca img/novios con varias extensiones ===== */
 (function cargarFoto() {
   const arco = document.getElementById('arco');
@@ -129,6 +144,84 @@ const FECHA_BODA = '2026-12-23T10:00:00-05:00';
     img.onerror = () => probar(i + 1);
     img.src = candidatas[i];
   })(0);
+})();
+
+/* ===== Música de fondo sutil =====
+   Los navegadores no permiten reproducir audio sin una acción del usuario,
+   así que empieza con el primer toque en la página. El botón flotante
+   permite silenciarla o reactivarla. Archivo: audio/musica.mp3 */
+(function iniciarMusica() {
+  const audio = document.getElementById('musica');
+  const boton = document.getElementById('btn-musica');
+  if (!audio || !boton) return;
+
+  const VOLUMEN = 0.25;          // En iPhone el volumen no se controla por código: usa un archivo ya suave
+  let quiereMusica = true;       // pasa a false si el invitado la silencia
+  let iniciada = false;
+  let fade;
+
+  audio.volume = VOLUMEN;
+
+  function pintarBoton() {
+    const sonando = !audio.paused;
+    boton.classList.toggle('sonando', sonando);
+    boton.setAttribute('aria-pressed', String(sonando));
+    boton.setAttribute('aria-label', sonando ? 'Silenciar música de fondo' : 'Activar música de fondo');
+  }
+
+  function entradaSuave() {
+    clearInterval(fade);
+    audio.volume = 0;
+    fade = setInterval(() => {
+      const siguiente = Math.min(audio.volume + 0.025, VOLUMEN);
+      audio.volume = siguiente;
+      if (siguiente >= VOLUMEN) clearInterval(fade);
+    }, 120);
+  }
+
+  async function reproducir() {
+    try {
+      await audio.play();
+      iniciada = true;
+      entradaSuave();
+      return true;
+    } catch (err) {
+      return false;   // el navegador la bloqueó: se reintenta en el siguiente toque
+    }
+  }
+
+  function primerToque() {
+    if (!quiereMusica || iniciada) return;
+    reproducir().then((ok) => {
+      if (ok) ['click', 'touchend', 'keydown'].forEach((ev) => document.removeEventListener(ev, primerToque));
+    });
+  }
+  ['click', 'touchend', 'keydown'].forEach((ev) => document.addEventListener(ev, primerToque, { passive: true }));
+
+  boton.addEventListener('click', () => {
+    if (audio.paused) {
+      quiereMusica = true;
+      reproducir();
+    } else {
+      quiereMusica = false;
+      audio.pause();
+    }
+  });
+
+  // Pausa al cambiar de pestaña o bloquear la pantalla; reanuda si no estaba silenciada
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) audio.pause();
+    else if (quiereMusica && iniciada) audio.play().catch(() => {});
+  });
+
+  audio.addEventListener('play', pintarBoton);
+  audio.addEventListener('pause', pintarBoton);
+
+  // Si el archivo no existe, se oculta el botón
+  audio.addEventListener('error', () => {
+    boton.hidden = true;
+    console.warn('Música no encontrada: guarda la canción como audio/musica.mp3.');
+  });
 })();
 
 /* ===== Probador de colores del código de vestimenta ===== */
