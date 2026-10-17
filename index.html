@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#F6EAD6">
+  <meta name="theme-color" content="#F8F4EC">
   <meta name="robots" content="noindex, nofollow">
   <title>Cristian &amp; Daniela · Nuestra boda</title>
   <meta name="description" content="Estás invitado a la boda de Cristian y Daniela. Miércoles 23 de diciembre de 2026.">
@@ -15,62 +15,73 @@
 </head>
 <body>
 
-  <!-- Biblioteca de dibujos florales (SVG reutilizable, sin imágenes externas) -->
+  <!-- Dibujos botánicos reutilizables (SVG inline, sin imágenes externas) -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
-      <!-- Flor de cinco pétalos: el color se define con "color" -->
-      <symbol id="flor" viewBox="0 0 40 40">
-        <g fill="currentColor" stroke="#fff" stroke-opacity=".7" stroke-width=".8">
-          <ellipse cx="20" cy="9" rx="6" ry="8.5"/>
-          <ellipse cx="20" cy="9" rx="6" ry="8.5" transform="rotate(72 20 20)"/>
-          <ellipse cx="20" cy="9" rx="6" ry="8.5" transform="rotate(144 20 20)"/>
-          <ellipse cx="20" cy="9" rx="6" ry="8.5" transform="rotate(216 20 20)"/>
-          <ellipse cx="20" cy="9" rx="6" ry="8.5" transform="rotate(288 20 20)"/>
+      <!-- Hoja con nervadura: el color se define en el <use> -->
+      <g id="hoja">
+        <path d="M0 0C8-9 22-9 30 0 22 9 8 9 0 0Z"/>
+        <path d="M2 0H27" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width=".8"/>
+      </g>
+
+      <!-- Flor de doble capa en tonos empolvados: el color se define con "color" -->
+      <symbol id="flor" viewBox="0 0 60 60">
+        <g fill="currentColor" fill-opacity=".6" stroke="#6E5258" stroke-opacity=".35" stroke-width=".6">
+          <ellipse cx="30" cy="14" rx="8" ry="13"/>
+          <ellipse cx="30" cy="14" rx="8" ry="13" transform="rotate(60 30 30)"/>
+          <ellipse cx="30" cy="14" rx="8" ry="13" transform="rotate(120 30 30)"/>
+          <ellipse cx="30" cy="14" rx="8" ry="13" transform="rotate(180 30 30)"/>
+          <ellipse cx="30" cy="14" rx="8" ry="13" transform="rotate(240 30 30)"/>
+          <ellipse cx="30" cy="14" rx="8" ry="13" transform="rotate(300 30 30)"/>
         </g>
-        <circle cx="20" cy="20" r="4.5" fill="#F0D98A"/>
+        <g fill="currentColor" stroke="#6E5258" stroke-opacity=".35" stroke-width=".6">
+          <ellipse cx="30" cy="19" rx="5.5" ry="9" transform="rotate(30 30 30)"/>
+          <ellipse cx="30" cy="19" rx="5.5" ry="9" transform="rotate(90 30 30)"/>
+          <ellipse cx="30" cy="19" rx="5.5" ry="9" transform="rotate(150 30 30)"/>
+          <ellipse cx="30" cy="19" rx="5.5" ry="9" transform="rotate(210 30 30)"/>
+          <ellipse cx="30" cy="19" rx="5.5" ry="9" transform="rotate(270 30 30)"/>
+          <ellipse cx="30" cy="19" rx="5.5" ry="9" transform="rotate(330 30 30)"/>
+        </g>
+        <circle cx="30" cy="30" r="4.2" fill="#C9A66B"/>
+        <circle cx="30" cy="30" r="1.6" fill="#8A6B3A"/>
       </symbol>
 
-      <!-- Ramita larga con flores -->
+      <!-- Rama vertical con hojas en pares y flores -->
       <symbol id="ramita" viewBox="0 0 120 220">
-        <path d="M60 218 C56 150 66 90 60 20" fill="none" stroke="#7E9F8A" stroke-width="1.8" stroke-linecap="round"/>
-        <g fill="#A9C7B2">
-          <ellipse cx="44" cy="195" rx="15" ry="7.5" transform="rotate(-35 44 195)"/>
-          <ellipse cx="78" cy="165" rx="15" ry="7.5" transform="rotate(35 78 165)"/>
-          <ellipse cx="42" cy="132" rx="13" ry="7" transform="rotate(-38 42 132)"/>
-          <ellipse cx="79" cy="102" rx="13" ry="7" transform="rotate(38 79 102)"/>
-          <ellipse cx="46" cy="70" rx="11" ry="6" transform="rotate(-40 46 70)"/>
-        </g>
-        <use href="#flor" x="38" y="0" width="44" height="44" style="color:#EBB9BE"/>
-        <use href="#flor" x="64" y="52" width="34" height="34" style="color:#CFC3E6"/>
-        <use href="#flor" x="18" y="86" width="34" height="34" style="color:#F3CDAE"/>
-        <use href="#flor" x="66" y="138" width="30" height="30" style="color:#B5D2E4"/>
-        <use href="#flor" x="20" y="172" width="28" height="28" style="color:#EBB9BE"/>
+        <path d="M60 216C54 160 66 100 60 34" fill="none" stroke="#6F8B79" stroke-width="1.6" stroke-linecap="round"/>
+        <use href="#hoja" fill="#8FA896" transform="translate(60 196) rotate(-150)"/>
+        <use href="#hoja" fill="#A3B8A9" transform="translate(60 184) rotate(-30)"/>
+        <use href="#hoja" fill="#8FA896" transform="translate(60 160) rotate(-150) scale(.95)"/>
+        <use href="#hoja" fill="#A3B8A9" transform="translate(60 148) rotate(-30) scale(.95)"/>
+        <use href="#hoja" fill="#8FA896" transform="translate(60 124) rotate(-150) scale(.85)"/>
+        <use href="#hoja" fill="#A3B8A9" transform="translate(60 112) rotate(-30) scale(.85)"/>
+        <use href="#hoja" fill="#8FA896" transform="translate(60 88) rotate(-150) scale(.72)"/>
+        <use href="#hoja" fill="#A3B8A9" transform="translate(60 78) rotate(-30) scale(.72)"/>
+        <use href="#flor" x="35" y="4" width="50" height="50" style="color:#D7A9AF"/>
+        <use href="#flor" x="68" y="92" width="30" height="30" style="color:#E6CDB6"/>
+        <use href="#flor" x="22" y="140" width="28" height="28" style="color:#C6BCD8"/>
       </symbol>
 
-      <!-- Ramillete para las esquinas del arco -->
-      <symbol id="ramo" viewBox="0 0 110 100">
-        <g fill="#A9C7B2">
-          <ellipse cx="18" cy="70" rx="20" ry="7" transform="rotate(-25 18 70)"/>
-          <ellipse cx="52" cy="84" rx="22" ry="7" transform="rotate(10 52 84)"/>
-          <ellipse cx="84" cy="62" rx="18" ry="6.5" transform="rotate(-50 84 62)"/>
-          <ellipse cx="30" cy="40" rx="16" ry="6" transform="rotate(-60 30 40)"/>
-        </g>
-        <use href="#flor" x="30" y="46" width="40" height="40" style="color:#EBB9BE"/>
-        <use href="#flor" x="62" y="24" width="32" height="32" style="color:#CFC3E6"/>
-        <use href="#flor" x="2" y="34" width="30" height="30" style="color:#F3CDAE"/>
-        <use href="#flor" x="60" y="64" width="28" height="28" style="color:#B5D2E4"/>
+      <!-- Arreglo floral en abanico para la base del arco -->
+      <symbol id="ramo" viewBox="0 0 140 110">
+        <use href="#hoja" fill="#8FA896" transform="translate(16 100) rotate(-95) scale(1.9)"/>
+        <use href="#hoja" fill="#A3B8A9" transform="translate(16 100) rotate(-65) scale(2)"/>
+        <use href="#hoja" fill="#8FA896" transform="translate(16 100) rotate(-38) scale(2)"/>
+        <use href="#hoja" fill="#A3B8A9" transform="translate(16 100) rotate(-12) scale(1.8)"/>
+        <use href="#hoja" fill="#8FA896" transform="translate(16 100) rotate(10) scale(1.4)"/>
+        <use href="#flor" x="38" y="42" width="50" height="50" style="color:#D7A9AF"/>
+        <use href="#flor" x="84" y="60" width="38" height="38" style="color:#E6CDB6"/>
+        <use href="#flor" x="68" y="24" width="30" height="30" style="color:#C6BCD8"/>
       </symbol>
 
-      <!-- Cenefa floral para separar secciones -->
+      <!-- Cenefa sobria para separar secciones -->
       <symbol id="divisor" viewBox="0 0 260 36">
-        <path d="M8 18 H92 M168 18 H252" stroke="#B89B7A" stroke-width="1.4" stroke-dasharray="2 5" stroke-linecap="round"/>
-        <g fill="#A9C7B2">
-          <ellipse cx="104" cy="23" rx="10" ry="3.8" transform="rotate(-20 104 23)"/>
-          <ellipse cx="156" cy="23" rx="10" ry="3.8" transform="rotate(20 156 23)"/>
-        </g>
-        <use href="#flor" x="113" y="1" width="34" height="34" style="color:#EBB9BE"/>
-        <use href="#flor" x="90" y="8" width="20" height="20" style="color:#CFC3E6"/>
-        <use href="#flor" x="150" y="8" width="20" height="20" style="color:#F3CDAE"/>
+        <path d="M10 18H98M162 18H250" stroke="#A8855F" stroke-width="1" stroke-opacity=".8"/>
+        <circle cx="8" cy="18" r="1.8" fill="#A8855F"/>
+        <circle cx="252" cy="18" r="1.8" fill="#A8855F"/>
+        <use href="#hoja" fill="#8FA896" transform="translate(116 18) rotate(180) scale(.55)"/>
+        <use href="#hoja" fill="#8FA896" transform="translate(144 18) scale(.55)"/>
+        <use href="#flor" x="118" y="6" width="24" height="24" style="color:#D7A9AF"/>
       </symbol>
     </defs>
   </svg>
@@ -174,7 +185,7 @@
       <svg class="esquina esquina-der" aria-hidden="true"><use href="#ramita"/></svg>
       <svg class="divisor" aria-hidden="true"><use href="#divisor"/></svg>
       <h2 id="t-regalos">Mesa de regalos</h2>
-      <p class="texto">Tu presencia es nuestro mejor regalo. Si deseas tener un detalle con nosotros, puedes hacerlo por Nequi.</p>
+      <p class="texto">Tu presencia es nuestro mejor regalo. Si deseas tener un detalle con nosotros, puedes hacerlo por Nequi o con el código QR.</p>
 
       <div class="nequi">
         <p class="nequi-num">318 694 0184</p>
@@ -191,6 +202,17 @@
         </button>
       </div>
       <p class="aviso-copiado" id="aviso-copiado" role="status" aria-live="polite"></p>
+
+      <!-- Código QR: imagen en img/qr_cristian.jpeg -->
+      <p class="o"><span>o con código QR</span></p>
+      <figure class="qr" id="qr">
+        <img id="qr-img" src="img/qr_cristian.jpeg" alt="Código QR para enviar tu regalo" width="220" height="220" loading="lazy" decoding="async">
+        <figcaption>Guarda la imagen y súbela desde la app de tu banco, o escanéala desde otro dispositivo.</figcaption>
+        <a class="boton boton-secundario" href="img/qr_cristian.jpeg" download="qr-regalo-boda.jpeg">
+          <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11"/><path d="M7 11l5 5 5-5"/><path d="M5 20h14"/></svg>
+          Descargar código QR
+        </a>
+      </figure>
     </section>
 
     <!-- 6. RSVP -->
@@ -198,8 +220,8 @@
       <svg class="esquina esquina-izq" aria-hidden="true"><use href="#ramita"/></svg>
       <svg class="divisor" aria-hidden="true"><use href="#divisor"/></svg>
       <h2 id="t-rsvp">¿Nos acompañas?</h2>
-      <p class="texto">Confirma tu asistencia antes del FECHA_LIMITE_RSVP. Nos ayuda a preparar todo con cariño.</p>
-      <a class="boton" href="URL_DE_GOOGLE_FORMS" target="_blank" rel="noopener noreferrer">Confirmar asistencia</a>
+      <p class="texto">Confirma tu asistencia antes del martes 1 de diciembre de 2026. Nos ayuda a preparar todo con cariño.</p>
+      <a class="boton" href="https://docs.google.com/forms/d/e/1FAIpQLSdzF1TOSq6DRaEQTVOGwKOJTnWyRur_PhQ17dw9Bi9m4l0_lA/viewform" target="_blank" rel="noopener noreferrer">Confirmar asistencia</a>
     </section>
 
   </main>
