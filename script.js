@@ -146,6 +146,65 @@ const FECHA_BODA = '2026-12-23T10:00:00-05:00';
   })(0);
 })();
 
+/* ===== Invitación personalizada por familia =====
+   Enlace de ejemplo:  tusitio/?familia=Familia+Rubio+Ramirez&max=4
+   - "familia": nombre EXACTO de la opción en el formulario (con tildes y mayúsculas).
+   - "max": tope de personas, solo para mostrarlo en la tarjeta (el formulario lo hace cumplir).
+   Sin parámetros, la tarjeta es general y el botón abre el formulario normal. */
+(function personalizarFamilia() {
+  const FORM_BASE = 'https://docs.google.com/forms/d/e/1FAIpQLSelB1e9CUkrvqD7jZTeqcY4k7G7jV34pKF-gRVi69Mst3VeZw/viewform';
+  const ENTRY_FAMILIA = 'entry.650476954';
+
+  const params = new URLSearchParams(window.location.search);
+  const familia = (params.get('familia') || '').trim().slice(0, 80);
+  if (!familia) return;
+
+  const max = Number.parseInt(params.get('max'), 10);
+  const cupo = Number.isInteger(max) && max >= 1 && max <= 30
+    ? 'hasta ' + max + (max === 1 ? ' persona' : ' personas')
+    : '';
+
+  // El botón de confirmación abre el formulario con la familia ya seleccionada
+  const boton = document.getElementById('btn-rsvp');
+  if (boton) {
+    const url = new URL(FORM_BASE);
+    url.searchParams.set('usp', 'pp_url');
+    url.searchParams.set(ENTRY_FAMILIA, familia);
+    boton.href = url.toString();
+  }
+
+  // textContent (no innerHTML): el nombre viene del enlace y nunca se interpreta como HTML
+  const mostrar = (id, texto) => {
+    const el = document.getElementById(id);
+    if (!el || !texto) return;
+    el.textContent = texto;
+    el.hidden = false;
+  };
+
+  mostrar('portada-para', 'Invitación para ' + familia);
+  mostrar('hero-familia', 'Invitación para ' + familia + (cupo ? ' · ' + cupo : ''));
+  mostrar('rsvp-cupo', cupo ? 'Tu invitación incluye ' + cupo + ', contando adultos y niños.' : '');
+})();
+
+/* ===== Pantalla de entrada =====
+   El toque en "Abrir invitación" es la acción del usuario que los navegadores
+   exigen para reproducir audio: ese mismo toque inicia la música (ver más abajo). */
+(function iniciarPortada() {
+  const portada = document.getElementById('portada');
+  const boton = document.getElementById('btn-abrir');
+  if (!portada || !boton) return;
+
+  const raiz = document.documentElement;
+  raiz.classList.add('portada-activa');
+
+  boton.addEventListener('click', () => {
+    portada.classList.add('abierta');
+    raiz.classList.remove('portada-activa');
+    window.scrollTo(0, 0);
+    setTimeout(() => { portada.hidden = true; }, 1000);
+  });
+})();
+
 /* ===== Música de fondo sutil =====
    Los navegadores no permiten reproducir audio sin una acción del usuario,
    así que empieza con el primer toque en la página. El botón flotante

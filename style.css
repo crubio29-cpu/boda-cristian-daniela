@@ -327,6 +327,38 @@ p { margin: 0; }
 .btn-musica.sonando .tachado { display: none; }
 .btn-musica.sonando { background: var(--salvia); color: #fff; }
 
+/* ===== Pantalla de entrada ===== */
+.portada-activa, .portada-activa body { overflow: hidden; }
+.portada-activa .hero > * { animation-play-state: paused; }   /* la entrada de la portada se ve al abrir */
+
+.portada {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  background-color: var(--papel);
+  background-image:
+    var(--grano),
+    radial-gradient(circle at 50% 40%, rgba(215, 169, 175, .22), transparent 65%);
+  transition: opacity .9s var(--ease), visibility .9s;
+}
+.portada[hidden] { display: none; }
+.portada.abierta { opacity: 0; visibility: hidden; pointer-events: none; }
+
+.portada-contenido { max-width: 22rem; display: flex; flex-direction: column; align-items: center; gap: .9rem; }
+.boceto-sobre { width: 140px; height: 140px; color: var(--madera); stroke-width: 1.5; margin-bottom: .25rem; }
+.portada-texto { font-family: var(--f-titulo); font-style: italic; font-weight: 600; font-size: 1.4rem; }
+.portada-nombres { font-family: var(--f-nombres); font-size: clamp(3rem, 14vw, 3.8rem); line-height: 1.2; color: var(--salvia-oscuro); margin-bottom: .75rem; }
+.portada-nota { font-size: .95rem; color: var(--texto-suave); }
+
+/* ===== Invitación personalizada por familia ===== */
+.portada-para { font-family: var(--f-titulo); font-weight: 700; font-size: 1.5rem; line-height: 1.25; margin: -.25rem 0 .75rem; }
+.hero-familia { position: relative; margin-top: 1rem; max-width: 20rem; font-family: var(--f-titulo); font-style: italic; font-weight: 700; font-size: 1.4rem; line-height: 1.3; color: var(--rosa-nombre); }
+.texto-cupo { font-weight: 600; margin-top: -.75rem; }
+
 /* ===== Pantallas grandes: tarjeta centrada ===== */
 @media (min-width: 520px) {
   .pie { max-width: 480px; margin-inline: auto; }
@@ -342,5 +374,5 @@ p { margin: 0; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .hero > * { animation: none; }
-  .boton, .muestra, .prenda .relleno, .btn-musica { transition: none; }
+  .boton, .muestra, .prenda .relleno, .btn-musica, .portada { transition: none; }
 }

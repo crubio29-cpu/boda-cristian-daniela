@@ -12,8 +12,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Montserrat:wght@400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <noscript><style>.portada{display:none !important}</style></noscript>
 </head>
 <body>
+
+  <!-- Pantalla de entrada: el toque en "Abrir invitación" permite iniciar la música -->
+  <div class="portada" id="portada" role="dialog" aria-modal="true" aria-label="Invitación de boda de Cristian y Daniela">
+    <div class="portada-contenido">
+      <svg class="boceto boceto-sobre" aria-hidden="true"><use href="#b-sobre"/></svg>
+      <p class="portada-texto">Estás invitado a la boda de</p>
+      <p class="portada-nombres">Cristian &amp; Daniela</p>
+      <p class="portada-para" id="portada-para" hidden></p>
+      <button type="button" class="boton" id="btn-abrir">Abrir invitación</button>
+      <p class="portada-nota">Tiene música suave de fondo</p>
+    </div>
+  </div>
 
   <!-- Bocetos de línea (SVG inline, sin imágenes externas) -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -129,6 +142,7 @@
 
       <h1 class="hero-nombres">Cristian <span class="amp">&amp;</span> Daniela</h1>
       <p class="hero-fecha">Miércoles 23 de diciembre de 2026</p>
+      <p class="hero-familia" id="hero-familia" hidden></p>
       <p class="hero-frase">“Como florece el campo en diciembre, así floreció nuestro amor: sin prisa, bajo un mismo cielo. Acompáñanos a sellarlo para siempre.”</p>
     </header>
 
@@ -256,7 +270,8 @@
       <div class="cabecera" aria-hidden="true"><svg class="boceto"><use href="#b-sobre"/></svg></div>
       <h2 id="t-rsvp">¿Nos acompañas?</h2>
       <p class="texto">Confirma tu asistencia antes del martes 1 de diciembre de 2026. Nos ayuda a preparar todo con cariño.</p>
-      <a class="boton" href="https://docs.google.com/forms/d/e/1FAIpQLSdzF1TOSq6DRaEQTVOGwKOJTnWyRur_PhQ17dw9Bi9m4l0_lA/viewform" target="_blank" rel="noopener noreferrer">Confirmar asistencia</a>
+      <p class="texto texto-cupo" id="rsvp-cupo" hidden></p>
+      <a class="boton" id="btn-rsvp" href="https://docs.google.com/forms/d/e/1FAIpQLSelB1e9CUkrvqD7jZTeqcY4k7G7jV34pKF-gRVi69Mst3VeZw/viewform" target="_blank" rel="noopener noreferrer">Confirmar asistencia</a>
     </section>
 
   </main>
