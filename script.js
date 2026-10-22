@@ -49,7 +49,7 @@ const FECHA_BODA = '2026-12-23T10:00:00-05:00';
   intervalo = setInterval(actualizar, 1000);
 })();
 
-/* ===== Copiar números de Nequi (cada botón copia su data-copiar) ===== */
+/* ===== Copiar llaves Bre-B (cada botón copia su data-copiar) ===== */
 (function iniciarCopiado() {
   const botones = document.querySelectorAll('.btn-copiar');
   const aviso = document.getElementById('aviso-copiado');
@@ -93,9 +93,9 @@ const FECHA_BODA = '2026-12-23T10:00:00-05:00';
     if (ok) {
       boton.classList.add('copiado');
       boton.querySelector('.btn-texto').textContent = '¡Copiado!';
-      aviso.textContent = 'Número copiado al portapapeles.';
+      aviso.textContent = 'Llave copiada al portapapeles.';
     } else {
-      aviso.textContent = 'No se pudo copiar. Mantén presionado el número para copiarlo.';
+      aviso.textContent = 'No se pudo copiar. Mantén presionada la llave para copiarla.';
     }
     temporizador = setTimeout(restaurar, 2500);
   }

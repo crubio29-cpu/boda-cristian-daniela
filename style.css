@@ -225,6 +225,7 @@ p { margin: 0; }
 .prenda .boton-g circle { fill: var(--texto); opacity: .75; }
 .prenda figcaption { font-size: 1rem; line-height: 1.4; }
 
+#paleta { display: grid; grid-template-columns: repeat(4, 3rem); justify-content: center; gap: .9rem; max-width: none; }
 .paleta { display: flex; justify-content: center; flex-wrap: wrap; gap: .8rem; max-width: 21rem; margin: 0 auto; }
 
 .muestra {
@@ -253,8 +254,9 @@ p { margin: 0; }
 .reservado .detalle { margin: .75rem 0 0; }
 
 /* ===== Regalos ===== */
-.nequi { margin: 0 auto 1.5rem; max-width: 22rem; padding: 1.25rem 1rem; background: var(--carta); border: 1px solid var(--linea); border-radius: 14px; }
-.nequi-num { font-family: var(--f-titulo); font-size: 2.1rem; font-weight: 700; letter-spacing: .04em; font-variant-numeric: tabular-nums; margin-bottom: .85rem; }
+.llave { margin: 0 auto 1.5rem; max-width: 22rem; padding: 1.25rem 1rem; background: var(--carta); border: 1px solid var(--linea); border-radius: 14px; }
+.llave-nombre { font-size: 1rem; font-weight: 500; color: var(--texto-suave); }
+.llave-valor { font-family: var(--f-titulo); font-size: 2rem; font-weight: 700; letter-spacing: .02em; overflow-wrap: anywhere; margin-bottom: .85rem; }
 .aviso-copiado { min-height: 1.6rem; font-size: 1rem; font-weight: 500; color: var(--texto-suave); }
 
 /* Separador "o con código QR" */
