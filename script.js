@@ -152,10 +152,10 @@ const FECHA_BODA = '2026-12-23T10:00:00-05:00';
    - "max": tope de personas, solo para mostrarlo en la tarjeta (el formulario lo hace cumplir).
    Sin parámetros, la tarjeta es general y el botón abre el formulario normal. */
 (function personalizarFamilia() {
-  const FORM_BASE = 'https://docs.google.com/forms/d/e/1FAIpQLSfXcjU_LtfSiUPpQT5XkKz1VHEXfG15GgBuxqt1-U_3YwBC2Q/viewform';
+  const FORM_BASE = 'https://docs.google.com/forms/d/e/1FAIpQLSdIIOS0S_ufvn4tYgyMiO8ShdozD_8VVDtuIxlDE0QbutoeuA/viewform';
   // Código del campo "familia" del formulario (sale en un enlace prellenado: ...&entry.XXXXXXXXX=Familia+...).
   // Es propio de cada formulario: si cambias de formulario, hay que actualizarlo.
-  const ENTRY_FAMILIA = 'entry.697646418';
+  const ENTRY_FAMILIA = 'entry.830504949';
 
   const params = new URLSearchParams(window.location.search);
   const familia = (params.get('familia') || '').trim().slice(0, 80);
