@@ -8,6 +8,15 @@
    ========================================================= */
 const FECHA_BODA = '2026-12-23T10:00:00-05:00';
 
+/* Fases de la tarjeta (hora de Colombia, UTC-5):
+   antes          -> hasta el fin del plazo para confirmar
+   rsvp-cerrado   -> después del 1 de diciembre y hasta la boda
+   dia            -> desde la hora de la boda hasta la medianoche
+   despues        -> desde el 24 de diciembre
+   Para probar cada fase, agrega al enlace:  ?fase=antes | rsvp-cerrado | dia | despues */
+const RSVP_CIERRE = '2026-12-02T00:00:00-05:00';
+const FIN_DIA = '2026-12-24T00:00:00-05:00';
+
 /* ===== Cuenta regresiva ===== */
 (function iniciarCuentaRegresiva() {
   const el = {
@@ -34,8 +43,7 @@ const FECHA_BODA = '2026-12-23T10:00:00-05:00';
 
     if (restante <= 0) {
       clearInterval(intervalo);
-      el.contador.hidden = true;
-      el.fin.hidden = false;
+      aplicarFase();
       return;
     }
 
@@ -112,21 +120,6 @@ const FECHA_BODA = '2026-12-23T10:00:00-05:00';
   });
 })();
 
-/* ===== Código QR: si la imagen no carga, se oculta el bloque ===== */
-(function iniciarQR() {
-  const img = document.getElementById('qr-img');
-  const bloque = document.getElementById('qr');
-  if (!img || !bloque) return;
-
-  const ocultar = () => {
-    bloque.hidden = true;
-    console.warn('QR no encontrado: guarda la imagen como img/qr_cristian.jpeg.');
-  };
-
-  img.addEventListener('error', ocultar);
-  if (img.complete && img.naturalWidth === 0) ocultar();
-})();
-
 /* ===== Foto del arco: busca img/novios con varias extensiones ===== */
 (function cargarFoto() {
   const arco = document.getElementById('arco');
@@ -152,10 +145,10 @@ const FECHA_BODA = '2026-12-23T10:00:00-05:00';
    - "max": tope de personas, solo para mostrarlo en la tarjeta (el formulario lo hace cumplir).
    Sin parámetros, la tarjeta es general y el botón abre el formulario normal. */
 (function personalizarFamilia() {
-  const FORM_BASE = 'https://docs.google.com/forms/d/e/1FAIpQLSdIIOS0S_ufvn4tYgyMiO8ShdozD_8VVDtuIxlDE0QbutoeuA/viewform';
+  const FORM_BASE = 'https://docs.google.com/forms/d/e/1FAIpQLSfXcjU_LtfSiUPpQT5XkKz1VHEXfG15GgBuxqt1-U_3YwBC2Q/viewform';
   // Código del campo "familia" del formulario (sale en un enlace prellenado: ...&entry.XXXXXXXXX=Familia+...).
   // Es propio de cada formulario: si cambias de formulario, hay que actualizarlo.
-  const ENTRY_FAMILIA = 'entry.830504949';
+  const ENTRY_FAMILIA = 'entry.697646418';
 
   const params = new URLSearchParams(window.location.search);
   const familia = (params.get('familia') || '').trim().slice(0, 80);
@@ -302,3 +295,51 @@ const FECHA_BODA = '2026-12-23T10:00:00-05:00';
     etiqueta.textContent = muestra.dataset.nombre;
   });
 })();
+
+/* ===== La tarjeta cambia con el tiempo ===== */
+function calcularFase() {
+  const forzada = new URLSearchParams(window.location.search).get('fase');
+  if (['antes', 'rsvp-cerrado', 'dia', 'despues'].includes(forzada)) return forzada;
+
+  const ahora = Date.now();
+  if (ahora >= new Date(FIN_DIA).getTime()) return 'despues';
+  if (ahora >= new Date(FECHA_BODA).getTime()) return 'dia';
+  if (ahora >= new Date(RSVP_CIERRE).getTime()) return 'rsvp-cerrado';
+  return 'antes';
+}
+
+function aplicarFase() {
+  const fase = calcularFase();
+  document.documentElement.dataset.fase = fase;
+
+  const porId = (id) => document.getElementById(id);
+  const texto = (id, t) => { const e = porId(id); if (e) e.textContent = t; };
+  const ocultar = (id, valor) => { const e = porId(id); if (e) e.hidden = valor; };
+
+  // Confirmación de asistencia: se cierra después de la fecha límite
+  const cerrado = fase !== 'antes';
+  ocultar('rsvp-abierto', cerrado);
+  ocultar('rsvp-cerrado', !cerrado);
+
+  // El día de la boda y después, la cuenta regresiva se reemplaza por un mensaje
+  const evento = fase === 'dia' || fase === 'despues';
+  ocultar('contador', evento);
+  ocultar('contador-fin', !evento);
+
+  if (fase === 'dia') {
+    texto('t-cuenta', 'Hoy es el gran día');
+    texto('contador-fin', 'Te esperamos a las 10:00 a. m. en la Casa de Nohora Ramirez. ¡Nos hace muchísima ilusión verte!');
+    texto('portada-texto', 'Hoy celebramos la boda de');
+  }
+
+  if (fase === 'despues') {
+    texto('t-cuenta', 'Gracias');
+    texto('contador-fin', 'Gracias por acompañarnos y hacer de este día algo inolvidable. Los llevamos en el corazón.');
+    texto('hero-invita', 'Gracias por ser parte de nuestra boda');
+    texto('portada-texto', 'Gracias por acompañarnos en la boda de');
+    texto('btn-abrir', 'Entrar');
+    ['ubicacion', 'vestimenta', 'rsvp'].forEach((id) => ocultar(id, true));
+  }
+}
+
+aplicarFase();

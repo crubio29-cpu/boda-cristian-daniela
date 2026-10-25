@@ -8,6 +8,17 @@
   <title>Cristian &amp; Daniela · Nuestra boda</title>
   <meta name="description" content="Estás invitado a la boda de Cristian y Daniela. Miércoles 23 de diciembre de 2026.">
 
+  <!-- Vista previa al compartir el enlace (WhatsApp, etc.). La imagen debe estar en img/preview.jpg -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:title" content="Cristian &amp; Daniela · Nuestra boda">
+  <meta property="og:description" content="Estás invitado a celebrar con nosotros el miércoles 23 de diciembre de 2026. Abre tu invitación.">
+  <meta property="og:image" content="https://crubio29-cpu.github.io/boda-cristian-daniela/img/preview.jpg?v=2">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://crubio29-cpu.github.io/boda-cristian-daniela/img/preview.jpg?v=2">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Montserrat:wght@400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
@@ -20,7 +31,7 @@
   <div class="portada" id="portada" role="dialog" aria-modal="true" aria-label="Invitación de boda de Cristian y Daniela">
     <div class="portada-contenido">
       <svg class="boceto boceto-sobre" aria-hidden="true"><use href="#b-sobre"/></svg>
-      <p class="portada-texto">Estás invitado a la boda de</p>
+      <p class="portada-texto" id="portada-texto">Estás invitado a la boda de</p>
       <p class="portada-nombres">Cristian &amp; Daniela</p>
       <p class="portada-para" id="portada-para" hidden></p>
       <button type="button" class="boton" id="btn-abrir">Abrir invitación</button>
@@ -131,7 +142,7 @@
     <header class="hero" id="inicio">
       <svg class="boceto boceto-anillos" aria-hidden="true"><use href="#b-anillos"/></svg>
 
-      <p class="hero-invita">Con el corazón lleno de alegría te invitamos a celebrar nuestra boda</p>
+      <p class="hero-invita" id="hero-invita">Con el corazón lleno de alegría te invitamos a celebrar nuestra boda</p>
 
       <!-- Arco colonial con foto: guarda tu imagen como img/novios.jpg (o .jpeg, .png, .webp) -->
       <div class="arco-marco">
@@ -170,6 +181,18 @@
         <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
         Ver en Google Maps
       </a>
+
+      <div class="calendario">
+        <p class="sub">Agregar al calendario</p>
+        <a class="boton boton-secundario" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Boda+de+Cristian+y+Daniela&amp;dates=20261223T150000Z/20261223T200000Z&amp;details=C%C3%B3digo+de+vestimenta%3A+tonos+pastel+y+ropa+formal+para+exteriores+%28mujeres%3A+vestido+o+ropa+fresca%3B+hombres%3A+guayabera+o+ropa+fresca%29.+Colores+reservados+para+los+novios%3A+perla+y+beige.+Mapa%3A+https%3A%2F%2Fmaps.app.goo.gl%2FuWxaTqTMLRFbRPK79&amp;location=Casa+de+Nohora+Ramirez%2C+Carrera+4+%232-1%2C+San+Cayetano" target="_blank" rel="noopener noreferrer">
+          <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
+          Android · Google Calendar
+        </a>
+        <a class="boton boton-secundario" href="boda_cristian_daniela.ics">
+          <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
+          iPhone · Apple Calendar
+        </a>
+      </div>
     </section>
 
     <!-- 4. CÓDIGO DE VESTIMENTA -->
@@ -241,9 +264,9 @@
     <section class="seccion seccion-tarjeta" id="regalos" aria-labelledby="t-regalos">
       <div class="cabecera" aria-hidden="true"><svg class="boceto"><use href="#b-regalo"/></svg></div>
       <h2 id="t-regalos">Mesa de regalos</h2>
-      <p class="texto">Tu presencia es nuestro mejor regalo. Con mucho cariño recibiremos cualquier detalle en físico, o para que sea más práctico, también dejamos la opción de una transferencia con nuestras llaves Bre-B.</p>
+      <p class="texto">Tu presencia es nuestro mejor regalo. Con mucho cariño recibiremos cualquier detalle en físico, y para que sea más práctico para todos también dejamos la opción de una transferencia con nuestras llaves Bre-B.</p>
 
-      <p class="sub">Llaves Bre-B</p>
+      <p class="sub">Nuestras llaves Bre-B</p>
       <div class="llave">
         <p class="llave-nombre">Daniela</p>
         <p class="llave-valor">@cabarcas5129</p>
@@ -261,14 +284,20 @@
         </button>
       </div>
       <p class="aviso-copiado" id="aviso-copiado" role="status" aria-live="polite"></p>
+    </section>
 
     <!-- 6. RSVP -->
     <section class="seccion" id="rsvp" aria-labelledby="t-rsvp">
       <div class="cabecera" aria-hidden="true"><svg class="boceto"><use href="#b-sobre"/></svg></div>
       <h2 id="t-rsvp">¿Nos acompañas?</h2>
-      <p class="texto">Confirma tu asistencia antes del martes 1 de diciembre de 2026. Nos ayuda a preparar todo con cariño.</p>
-      <p class="texto texto-cupo" id="rsvp-cupo" hidden></p>
-      <a class="boton" id="btn-rsvp" href="https://docs.google.com/forms/d/e/1FAIpQLSfXcjU_LtfSiUPpQT5XkKz1VHEXfG15GgBuxqt1-U_3YwBC2Q/viewform" target="_blank" rel="noopener noreferrer">Confirmar asistencia</a>
+      <div id="rsvp-abierto">
+        <p class="texto">Confirma tu asistencia antes del martes 1 de diciembre de 2026. Nos ayuda a preparar todo con cariño.</p>
+        <p class="texto texto-cupo" id="rsvp-cupo" hidden></p>
+        <a class="boton" id="btn-rsvp" href="https://docs.google.com/forms/d/e/1FAIpQLSfXcjU_LtfSiUPpQT5XkKz1VHEXfG15GgBuxqt1-U_3YwBC2Q/viewform" target="_blank" rel="noopener noreferrer">Confirmar asistencia</a>
+      </div>
+      <div id="rsvp-cerrado" hidden>
+        <p class="texto">El plazo para confirmar asistencia terminó el martes 1 de diciembre. Si aún no nos has avisado, escríbenos directamente y vemos cómo hacerlo.</p>
+      </div>
     </section>
 
   </main>

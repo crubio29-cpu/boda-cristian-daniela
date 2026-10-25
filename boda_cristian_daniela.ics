@@ -1,0 +1,28 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Boda Cristian y Daniela//ES
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:boda-cristian-daniela-20261223@invitacion
+DTSTAMP:20261025T000000Z
+DTSTART:20261223T150000Z
+DTEND:20261223T200000Z
+SUMMARY:Boda de Cristian y Daniela
+LOCATION:Casa de Nohora Ramirez\, Carrera 4 #2-1\, San Cayetano
+DESCRIPTION:Código de vestimenta: tonos pastel y ropa formal para exterior
+ es (mujeres: vestido o ropa fresca\; hombres: guayabera o ropa fresca). Co
+ lores reservados para los novios: perla y beige. Mapa: https://maps.app.go
+ o.gl/uWxaTqTMLRFbRPK79
+URL:https://maps.app.goo.gl/uWxaTqTMLRFbRPK79
+BEGIN:VALARM
+TRIGGER:-P7D
+ACTION:DISPLAY
+DESCRIPTION:Falta una semana para la boda de Cristian y Daniela
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:Mañana es la boda de Cristian y Daniela
+END:VALARM
+END:VEVENT
+END:VCALENDAR
